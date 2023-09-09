@@ -12,7 +12,7 @@ type CompareBook struct {
 	book2       Book
 }
 
-func newCompareBook(typecompare string, book1 Book, book2 Book) *CompareBook {
+func NewCompareBook(typecompare string, book1 Book, book2 Book) *CompareBook {
 	cb := CompareBook{typecompare, book1, book2}
 	return &cb
 }
