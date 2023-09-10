@@ -1,35 +1,39 @@
 package types
 
+type TypeCompare int
+
 const (
-	Year = "Year"
-	Size = "Size"
-	Rate = "Rate"
+	Year TypeCompare = iota + 1
+	Size
+	Rate
 )
 
 type CompareBook struct {
-	typecompare string
-	book1       Book
-	book2       Book
+	typecompare TypeCompare
 }
 
-func NewCompareBook(typecompare string, book1 Book, book2 Book) *CompareBook {
-	cb := CompareBook{typecompare, book1, book2}
+func (cb *CompareBook) GetTypeCompare() TypeCompare {
+	return cb.typecompare
+}
+
+func NewCompareBook(typecompare TypeCompare) *CompareBook {
+	cb := CompareBook{typecompare}
 	return &cb
 }
 
-func (cb *CompareBook) Compare() bool {
-	switch cb.typecompare {
+func (cb *CompareBook) Compare(book1 *Book, book2 *Book) bool {
+	switch cb.GetTypeCompare() {
 	case Year:
 		{
-			return cb.book1.GetYear() > cb.book2.GetYear()
+			return book1.GetYear() > book2.GetYear()
 		}
 	case Size:
 		{
-			return cb.book1.GetSize() > cb.book2.GetSize()
+			return book1.GetSize() > book2.GetSize()
 		}
 	case Rate:
 		{
-			return cb.book1.GetRate() > cb.book2.GetRate()
+			return book1.GetRate() > book2.GetRate()
 		}
 	default:
 		return false
