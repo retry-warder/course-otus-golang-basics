@@ -1,7 +1,5 @@
 package types
 
-import "fmt"
-
 type TypeCompare int
 
 const (
@@ -40,11 +38,6 @@ func (cb *CompareBook) Compare(book1 *Book, book2 *Book) bool {
 		}
 	default:
 		compare = false
-	}
-	if compare {
-		fmt.Println(book1)
-	} else {
-		fmt.Println(book2)
 	}
 	return compare
 }
