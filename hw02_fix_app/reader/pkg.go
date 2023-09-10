@@ -2,11 +2,11 @@ package reader
 
 import (
 	"encoding/json"
-	"hw02_fix_app/types"
+	"fmt"
 	"io"
 	"os"
 
-	"fmt"
+	"github.com/retry-warder/course-otus-golang-basics/hw02_fix_app/types"
 )
 
 func ReadJSON(filePath string) ([]types.Employee, error) {
