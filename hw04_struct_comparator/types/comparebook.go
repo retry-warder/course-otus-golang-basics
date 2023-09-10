@@ -1,5 +1,7 @@
 package types
 
+import "fmt"
+
 type TypeCompare int
 
 const (
@@ -22,20 +24,27 @@ func NewCompareBook(typecompare TypeCompare) *CompareBook {
 }
 
 func (cb *CompareBook) Compare(book1 *Book, book2 *Book) bool {
+	var compare bool
 	switch cb.GetTypeCompare() {
 	case Year:
 		{
-			return book1.GetYear() > book2.GetYear()
+			compare = (book1.GetYear() > book2.GetYear())
 		}
 	case Size:
 		{
-			return book1.GetSize() > book2.GetSize()
+			compare = book1.GetSize() > book2.GetSize()
 		}
 	case Rate:
 		{
-			return book1.GetRate() > book2.GetRate()
+			compare = book1.GetRate() > book2.GetRate()
 		}
 	default:
-		return false
+		compare = false
 	}
+	if compare {
+		fmt.Println(book1)
+	} else {
+		fmt.Println(book2)
+	}
+	return compare
 }

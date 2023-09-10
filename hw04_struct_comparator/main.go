@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"hw04_struct_comparator/types"
 )
 
@@ -10,9 +9,4 @@ func main() {
 	book2 := types.NewBook(2, "T2", "A2", 2023, 120, 15)
 	compare := types.NewCompareBook(types.Size)
 	compare.Compare(book1, book2)
-	if compare.Compare(book1, book2) {
-		fmt.Println(book1)
-	} else {
-		fmt.Println(book2)
-	}
 }
