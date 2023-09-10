@@ -66,7 +66,6 @@ func CalculateArea(s any) float64 {
 		area = shape.Area()
 	} else {
 		fmt.Println("Ошибка: переданный объект не является фигурой.")
-		area = 0
 	}
 	return area
 }
