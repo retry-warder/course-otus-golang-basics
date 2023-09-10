@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-
 	"hw04_struct_comparator/types"
 )
 
