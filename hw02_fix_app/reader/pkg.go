@@ -2,11 +2,11 @@ package reader
 
 import (
 	"encoding/json"
-	"fmt"
+	"hw02_fix_app/types"
 	"io"
 	"os"
 
-	"hw02_fix_app/types"
+	"fmt"
 )
 
 func ReadJSON(filePath string) ([]types.Employee, error) {
