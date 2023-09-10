@@ -21,15 +21,15 @@ func (cb *CompareBook) Compare() bool {
 	switch cb.typecompare {
 	case Year:
 		{
-			return cb.book1.getYear() > cb.book2.getYear()
+			return cb.book1.GetYear() > cb.book2.GetYear()
 		}
 	case Size:
 		{
-			return cb.book1.getSize() > cb.book2.getSize()
+			return cb.book1.GetSize() > cb.book2.GetSize()
 		}
 	case Rate:
 		{
-			return cb.book1.getRate() > cb.book2.getRate()
+			return cb.book1.GetRate() > cb.book2.GetRate()
 		}
 	default:
 		return false

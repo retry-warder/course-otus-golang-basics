@@ -14,14 +14,14 @@ func NewBook(id int, title string, author string, year int, size int, rate float
 	return &book
 }
 
-func (b *Book) getYear() int {
+func (b *Book) GetYear() int {
 	return b.year
 }
 
-func (b *Book) getSize() int {
+func (b *Book) GetSize() int {
 	return b.size
 }
 
-func (b *Book) getRate() float64 {
+func (b *Book) GetRate() float64 {
 	return b.rate
 }
