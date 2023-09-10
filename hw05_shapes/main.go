@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/fixme_my_friend/hw05_shapes/types"
+	"github.com/retry-warder/hw05_shapes/types"
 )
 
 func main() {

@@ -6,7 +6,7 @@ import (
 )
 
 type Shape interface {
-	Area()
+	Area() float64
 }
 
 type Circle struct {
@@ -18,10 +18,11 @@ func NewCircle(radius int) *Circle {
 	return &circle
 }
 
-func (c *Circle) Area() {
+func (c *Circle) Area() float64 {
 	area := float64(math.Pi) * math.Pow(float64(c.radius), 2)
 	fmt.Printf("Круг: радиус %d Площадь: %f", c.radius, area)
 	fmt.Println()
+	return area
 }
 
 type Triangle struct {
@@ -34,10 +35,11 @@ func NewTriangle(base int, height int) *Triangle {
 	return &triangle
 }
 
-func (t *Triangle) Area() {
+func (t *Triangle) Area() float64 {
 	area := (float64(t.base) * float64(t.height)) / 2
 	fmt.Printf("Треугольник: основание %d, высота %d Площадь: %f", t.base, t.height, area)
 	fmt.Println()
+	return area
 }
 
 type Rectangle struct {
@@ -50,17 +52,21 @@ func NewRectangle(length int, width int) *Rectangle {
 	return &rectangle
 }
 
-func (r Rectangle) Area() {
+func (r Rectangle) Area() float64 {
 	area := float64(r.length) * float64(r.width)
 	fmt.Printf("Прямоугольник: ширина %d, высота %d Площадь: %f", r.length, r.width, area)
 	fmt.Println()
+	return area
 }
 
-func CalculateArea(s any) {
+func CalculateArea(s any) float64 {
+	var area float64
 	shape, ok := s.(Shape)
 	if ok {
-		shape.Area()
+		area = shape.Area()
 	} else {
 		fmt.Println("Ошибка: переданный объект не является фигурой.")
+		area = 0
 	}
+	return area
 }
