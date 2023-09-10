@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/fixme_my_friend/hw02_fix_app/types"
+	"github.com/retry-warder/hw02_fix_app/types"
 )
 
 func ReadJSON(filePath string) ([]types.Employee, error) {
@@ -29,7 +29,6 @@ func ReadJSON(filePath string) ([]types.Employee, error) {
 		fmt.Printf("Error: %v", err)
 		return nil, err
 	}
-	res := data
 
-	return res, nil
+	return data, nil
 }
