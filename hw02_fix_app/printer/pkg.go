@@ -3,7 +3,7 @@ package printer
 import (
 	"fmt"
 
-	"github.com/retry-warder/hw02_fix_app/types"
+	"hw02_fix_app/types"
 )
 
 func PrintStaff(staff []types.Employee) {

@@ -1,14 +1,14 @@
-package init
+package main
 
 import (
 	"fmt"
 
-	"github.com/retry-warder/hw02_fix_app/printer"
-	"github.com/retry-warder/hw02_fix_app/reader"
-	"github.com/retry-warder/hw02_fix_app/types"
+	"hw02_fix_app/printer"
+	"hw02_fix_app/reader"
+	"hw02_fix_app/types"
 )
 
-func init() {
+func main() {
 	var path string
 
 	fmt.Printf("Enter data file path: ")

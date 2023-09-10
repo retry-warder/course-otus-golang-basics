@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/retry-warder/hw02_fix_app/types"
+	"hw02_fix_app/types"
 )
 
 func ReadJSON(filePath string) ([]types.Employee, error) {
