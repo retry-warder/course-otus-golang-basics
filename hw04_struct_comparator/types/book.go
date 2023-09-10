@@ -26,30 +26,30 @@ func NewBook(id int, title string, author string, year int, size int, rate float
 
 func (b *Book) String() string {
 	tmplts := "[id: %d, title: %s, author %s, year: %d, size: %d, rate %f]"
-	return fmt.Sprintf(tmplts, b.GetID(), b.GetTitle(), b.GetAuthor(), b.GetYear(), b.GetSize(), b.GetRate())
+	return fmt.Sprintf(tmplts, b.ID(), b.Title(), b.Author(), b.Year(), b.Size(), b.Rate())
 }
 
-func (b *Book) GetID() int {
+func (b *Book) ID() int {
 	return b.id
 }
 
-func (b *Book) GetTitle() string {
+func (b *Book) Title() string {
 	return b.title
 }
 
-func (b *Book) GetAuthor() string {
+func (b *Book) Author() string {
 	return b.author
 }
 
-func (b *Book) GetYear() int {
+func (b *Book) Year() int {
 	return b.year
 }
 
-func (b *Book) GetSize() int {
+func (b *Book) Size() int {
 	return b.size
 }
 
-func (b *Book) GetRate() float64 {
+func (b *Book) Rate() float64 {
 	return b.rate
 }
 

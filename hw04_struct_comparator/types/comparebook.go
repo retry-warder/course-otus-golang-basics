@@ -26,15 +26,15 @@ func (cb *CompareBook) Compare(book1 *Book, book2 *Book) bool {
 	switch cb.GetTypeCompare() {
 	case Year:
 		{
-			compare = (book1.GetYear() > book2.GetYear())
+			compare = (book1.Year() > book2.Year())
 		}
 	case Size:
 		{
-			compare = book1.GetSize() > book2.GetSize()
+			compare = book1.Size() > book2.Size()
 		}
 	case Rate:
 		{
-			compare = book1.GetRate() > book2.GetRate()
+			compare = book1.Rate() > book2.Rate()
 		}
 	default:
 		compare = false
