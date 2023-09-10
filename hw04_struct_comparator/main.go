@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/retry-warder/hw04_struct_comparator/types"
+	"hw04_struct_comparator/types"
 )
 
 func main() {
