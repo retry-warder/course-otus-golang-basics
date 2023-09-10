@@ -1,7 +1,7 @@
 package main
 
 import (
-	"hw05_shapes/types"
+	"github.com/retry-warder/course-otus-golang-basics/hw05_shapes/types"
 )
 
 func main() {
