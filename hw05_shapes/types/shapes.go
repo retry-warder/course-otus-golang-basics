@@ -72,9 +72,7 @@ func (r Rectangle) String() string {
 func CalculateArea(s any) (float64, error) {
 	shape, ok := s.(Shape)
 	if ok {
-		fmt.Println(shape)
 		return shape.Area(), nil
 	}
-	fmt.Println("Ошибка: переданный объект не является фигурой.")
 	return 0.0, errors.New("ошибка: переданный объект не является фигурой")
 }
