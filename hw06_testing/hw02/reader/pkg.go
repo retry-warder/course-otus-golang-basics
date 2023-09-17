@@ -1,4 +1,4 @@
-package reader
+package hw02_reader
 
 import (
 	"encoding/json"
