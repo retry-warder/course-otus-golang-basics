@@ -14,7 +14,6 @@ import (
 
 func Test_HW03(t *testing.T) {
 	strok := "# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n"
-	//strfail := "# # #\r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n## # \r\n # # # #\r\n"
 	tests := []struct {
 		name     string
 		size     int
@@ -22,7 +21,6 @@ func Test_HW03(t *testing.T) {
 	}{
 		{"empty", 0, ""},
 		{"ok", 8, strok},
-		//{"fail", 8, strfail},
 	}
 	for _, tc := range tests {
 		tc := tc
@@ -49,9 +47,6 @@ func Test_HW04(t *testing.T) {
 		{"Ok Compare YEAR", book1, book2, hw04_types.Year, book2.String()},
 		{"Ok Compare SIZE", book1, book2, hw04_types.Size, book2.String()},
 		{"Ok Compare RATE", book1, book2, hw04_types.Rate, book1.String()},
-		//{"FAIL Compare YEAR", book1, book2, hw04_types.Year, book1.String()},
-		//{"FAIL Compare SIZE", book1, book2, hw04_types.Size, book1.String()},
-		//{"FAIL Compare RATE", book1, book2, hw04_types.Rate, book2.String()},
 	}
 	for _, tc := range tests {
 		compare := hw04_types.NewCompareBook(tc.typecompare)
