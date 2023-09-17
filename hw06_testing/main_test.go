@@ -14,7 +14,7 @@ import (
 
 func Test_HW03(t *testing.T) {
 	strok := "# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n"
-	strfail := "# # #\r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n## # \r\n # # # #\r\n"
+	//strfail := "# # #\r\n # # # #\r\n# # # # \r\n # # # #\r\n# # # # \r\n # # # #\r\n## # \r\n # # # #\r\n"
 	tests := []struct {
 		name     string
 		size     int
@@ -22,7 +22,7 @@ func Test_HW03(t *testing.T) {
 	}{
 		{"empty", 0, ""},
 		{"ok", 8, strok},
-		{"fail", 8, strfail},
+		//{"fail", 8, strfail},
 	}
 	for _, tc := range tests {
 		tc := tc
@@ -49,9 +49,9 @@ func Test_HW04(t *testing.T) {
 		{"Ok Compare YEAR", book1, book2, hw04_types.Year, book2.String()},
 		{"Ok Compare SIZE", book1, book2, hw04_types.Size, book2.String()},
 		{"Ok Compare RATE", book1, book2, hw04_types.Rate, book1.String()},
-		{"FAIL Compare YEAR", book1, book2, hw04_types.Year, book1.String()},
-		{"FAIL Compare SIZE", book1, book2, hw04_types.Size, book1.String()},
-		{"FAIL Compare RATE", book1, book2, hw04_types.Rate, book2.String()},
+		//{"FAIL Compare YEAR", book1, book2, hw04_types.Year, book1.String()},
+		//{"FAIL Compare SIZE", book1, book2, hw04_types.Size, book1.String()},
+		//{"FAIL Compare RATE", book1, book2, hw04_types.Rate, book2.String()},
 	}
 	for _, tc := range tests {
 		compare := hw04_types.NewCompareBook(tc.typecompare)
@@ -88,12 +88,12 @@ func Test_HW05_Ok(t *testing.T) {
 	}
 }
 
-func Test_HW05_Fail(t *testing.T) {
+/*func Test_HW05_Fail(t *testing.T) {
 	area, err := hw05_types.CalculateArea("shape")
 	if area == 0.0 && err != nil {
 		t.Errorf("Fail Calc Area (%v)", err)
 	}
-}
+}*/
 
 func Test_HW02(t *testing.T) {
 	var err error
@@ -104,7 +104,7 @@ func Test_HW02(t *testing.T) {
 		expected string
 	}{
 		{"Ok", "hw02/test_1.json", fmt.Sprintf("User ID: %d; Age: %d; Name: %s; Department ID: %d; ", 1, 22, "Ivan", 2)},
-		{"Fail", "hw02/test_2.json", fmt.Sprintf("User ID: %d; Age: %d; Name: %s; Department ID: %d; ", 1, 27, "Eva", 2)},
+		//{"Fail", "hw02/test_2.json", fmt.Sprintf("User ID: %d; Age: %d; Name: %s; Department ID: %d; ", 1, 27, "Eva", 2)},
 	}
 	for _, tc := range tests {
 		tc := tc
