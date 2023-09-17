@@ -1,15 +1,13 @@
-package hw02_reader
+package hw02
 
 import (
 	"encoding/json"
 	"fmt"
 	"io"
 	"os"
-
-	hw02_types "github.com/retry-warder/course-otus-golang-basics/hw06_testing/hw02/types"
 )
 
-func ReadJSON(filePath string) ([]hw02_types.Employee, error) {
+func ReadJSON(filePath string) ([]Employee, error) {
 	f, err := os.Open(filePath)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
@@ -22,7 +20,7 @@ func ReadJSON(filePath string) ([]hw02_types.Employee, error) {
 		return nil, err
 	}
 
-	var data []hw02_types.Employee
+	var data []Employee
 
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {

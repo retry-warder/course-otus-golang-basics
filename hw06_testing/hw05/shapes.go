@@ -1,4 +1,4 @@
-package hw05_types
+package hw05
 
 import (
 	"errors"

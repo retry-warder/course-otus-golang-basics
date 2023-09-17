@@ -1,4 +1,4 @@
-package hw04_types
+package hw04
 
 import (
 	"fmt"
