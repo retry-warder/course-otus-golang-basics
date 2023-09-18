@@ -72,6 +72,7 @@ func Test_HW05(t *testing.T) {
 		{"Ok Calc Area of Circle", hw05_types.NewCircle(8), float64(math.Pi) * math.Pow(float64(8), 2), nil},
 		{"Ok Calc Area of Rectangle", hw05_types.NewRectangle(2, 5), float64(2) * float64(5), nil},
 		{"Ok Calc Area of Triangle", hw05_types.NewTriangle(5, 10), (float64(5) * float64(10)) / 2, nil},
+		//{"Fail", "Shape", 0.0, nil},
 	}
 	for _, tc := range tests {
 		tc := tc
