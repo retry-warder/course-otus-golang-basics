@@ -61,10 +61,10 @@ func Test_HW04(t *testing.T) {
 	}
 }
 
-func Test_HW05_Ok(t *testing.T) {
+func Test_HW05(t *testing.T) {
 	type strtest struct {
 		name     string
-		shape    hw05_types.Shape
+		shape    any
 		expected float64
 		err      error
 	}
@@ -77,18 +77,12 @@ func Test_HW05_Ok(t *testing.T) {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
-			area, _ := hw05_types.CalculateArea(tc.shape)
+			area, err := hw05_types.CalculateArea(tc.shape)
+			require.NoError(t, err)
 			require.Equal(t, tc.expected, area, fmt.Sprintf("Calc Area (%v) = %f; want %f", tc.shape, area, tc.expected))
 		})
 	}
 }
-
-/*func Test_HW05_Fail(t *testing.T) {
-	area, err := hw05_types.CalculateArea("shape")
-	if area == 0.0 && err != nil {
-		t.Errorf("Fail Calc Area (%v)", err)
-	}
-}*/
 
 func Test_HW02(t *testing.T) {
 	var err error
