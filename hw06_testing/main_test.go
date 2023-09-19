@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
 	"testing"
@@ -72,17 +73,19 @@ func Test_HW05(t *testing.T) {
 		{"Ok Calc Area of Circle", hw05_types.NewCircle(8), float64(math.Pi) * math.Pow(float64(8), 2), nil},
 		{"Ok Calc Area of Rectangle", hw05_types.NewRectangle(2, 5), float64(2) * float64(5), nil},
 		{"Ok Calc Area of Triangle", hw05_types.NewTriangle(5, 10), (float64(5) * float64(10)) / 2, nil},
+		{"Ok Error", "SHAPE", 0.0, errors.New("ошибка: переданный объект не является фигурой")},
 	}
 	for _, tc := range tests {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 			area, err := hw05_types.CalculateArea(tc.shape)
-			require.NoError(t, err)
-			if err != nil {
-				require.Errorf(t, err, "ошибка: переданный объект не является фигурой")
+			if err != nil && !errors.Is(err, errors.New("ошибка: переданный объект не является фигурой")) {
+				require.EqualError(t, err, "ошибка: переданный объект не является фигурой")
+			} else {
+				require.NoError(t, err)
+				require.Equal(t, tc.expected, area, fmt.Sprintf("Calc Area (%v) = %f; want %f", tc.shape, area, tc.expected))
 			}
-			require.Equal(t, tc.expected, area, fmt.Sprintf("Calc Area (%v) = %f; want %f", tc.shape, area, tc.expected))
 		})
 	}
 }
