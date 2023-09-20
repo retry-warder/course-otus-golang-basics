@@ -1,10 +1,10 @@
-package types
+package wordcounter
 
 import "strings"
 
 type WordCountMap map[string]int64
 
-const WordCountSep string = " \n\t,.:;!?\"'()[]"
+const WordCountSep string = " \r\n\t,.:;!?\"'()[]"
 
 func CountWord(inText string) WordCountMap {
 	var buffer strings.Builder
@@ -25,12 +25,7 @@ func CountWord(inText string) WordCountMap {
 		if oks || i == len(arrText)-1 {
 			if buffer.Len() > 0 {
 				word := buffer.String()
-				_, okw := (mapWC)[word]
-				if okw {
-					(mapWC)[word]++
-				} else {
-					(mapWC)[word] = 1
-				}
+				(mapWC)[word]++
 				buffer.Reset()
 			}
 		}
