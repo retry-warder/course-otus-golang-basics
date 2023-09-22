@@ -1,20 +1,43 @@
 package binarysearch
 
-func BinarySearch(array []int, key int) (bool, int) {
+type BSS struct {
+	id   int
+	data string
+}
+
+func (bss *BSS) SetID(id int) {
+	bss.id = id
+}
+
+func (bss *BSS) SetData(data string) {
+	bss.data = data
+}
+
+func NewBSS(id int, data string) *BSS {
+	bss := new(BSS)
+	bss.SetID(id)
+	bss.SetData(data)
+	return bss
+}
+
+type BSA []BSS
+
+func BinarySearch(bsa BSA, id int) (bool, string) {
 	var mid, exp int
 	min := 0
-	high := len(array) - 1
+	high := len(bsa) - 1
 	for min <= high {
 		mid = (min + high) / 2
 		exp = mid
-		if array[exp] == key {
-			return true, exp
+		findval := bsa[exp]
+		if findval.id == id {
+			return true, findval.data
 		}
-		if array[exp] > key {
+		if findval.id > id {
 			high = mid - 1
 		} else {
 			min = mid + 1
 		}
 	}
-	return false, -1
+	return false, ""
 }
