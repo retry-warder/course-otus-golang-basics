@@ -8,19 +8,15 @@ import (
 )
 
 func Test_BinarySearch_1(t *testing.T) {
-	var testval BSA
-	prtestval := []int{1, 3, 7, 9, 11, 31, 56, 75, 116}
-	for _, i := range prtestval {
-		testval = append(testval, *NewBSS(i, fmt.Sprintf("Bingo_%v", i)))
-	}
+	testval := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	tests := []struct {
 		name     string
 		value    int
 		expected bool
 	}{
-		{"ok", 11, true},
-		{"ok", 31, true},
-		{"fail", 10, false},
+		{"ok", 1, true},
+		{"ok", 7, true},
+		{"fail", 14, false},
 	}
 	for _, tc := range tests {
 		tc := tc
@@ -33,19 +29,15 @@ func Test_BinarySearch_1(t *testing.T) {
 }
 
 func Test_BinarySearch_2(t *testing.T) {
-	var testval BSA
-	prtestval := []int{1, 3, 7, 9, 11, 31, 56, 75, 116}
-	for _, i := range prtestval {
-		testval = append(testval, *NewBSS(i, fmt.Sprintf("Bingo_%v", i)))
-	}
+	testval := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	tests := []struct {
 		name     string
 		value    int
-		expected string
+		expected int
 	}{
-		{"ok", 11, "Bingo_11"},
-		{"ok", 31, "Bingo_31"},
-		{"fail", 10, ""},
+		{"ok", 1, 1},
+		{"ok", 8, 8},
+		{"fail", 17, -1},
 	}
 	for _, tc := range tests {
 		tc := tc

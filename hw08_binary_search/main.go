@@ -27,12 +27,7 @@ func main() {
 	_, s = binarytree.BSearch(r, 10)
 	fmt.Println(s)
 
-	var testval2 binarysearch.BSA
-	prtestval := []int{1, 3, 7, 9, 11, 31, 56, 75, 116}
-	for _, i := range prtestval {
-		testval2 = append(testval2, *binarysearch.NewBSS(i, fmt.Sprintf("Bingo_%v", i)))
-	}
-
-	_, res := binarysearch.BinarySearch(testval2, 31)
+	testval2 := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	_, res := binarysearch.BinarySearch(testval2, 7)
 	fmt.Println(res)
 }
