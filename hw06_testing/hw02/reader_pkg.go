@@ -1,15 +1,13 @@
-package reader
+package hw02
 
 import (
 	"encoding/json"
 	"fmt"
 	"io"
 	"os"
-
-	"github.com/fixme_my_friend/hw02_fix_app/types"
 )
 
-func ReadJSON(filePath string) ([]types.Employee, error) {
+func ReadJSON(filePath string) ([]Employee, error) {
 	f, err := os.Open(filePath)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
@@ -22,14 +20,13 @@ func ReadJSON(filePath string) ([]types.Employee, error) {
 		return nil, err
 	}
 
-	var data []types.Employee
+	var data []Employee
 
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 		return nil, err
 	}
-	res := data
 
-	return res, nil
+	return data, nil
 }
