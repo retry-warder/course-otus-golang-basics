@@ -59,6 +59,7 @@ func main() {
 	}
 	fmt.Println(b3)
 	fmt.Println(marshaled1)
+	fmt.Println(len(marshaled1))
 	b3u := &types_pb.Book{}
 	err = proto.Unmarshal(marshaled1, b3u)
 	if err != nil {
@@ -67,13 +68,14 @@ func main() {
 	fmt.Println(b3u)
 	fmt.Printf("%v\n", "------------------------------------------------------------")
 
-	b4 := types_pb.NewBook(1, "Test 2", "Test.X.Y", 2000, 1500, 10.90)
+	b4 := types_pb.NewBook(1, "Test 2", "Тест Т.Т.", 2000, 1500, 10.90)
 	marshaled2, err := proto.Marshal(b4)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println(b4)
 	fmt.Println(marshaled2)
+	fmt.Println(len(marshaled2))
 	b4u := &types_pb.Book{}
 	err = proto.Unmarshal(marshaled2, b4u)
 	if err != nil {
@@ -94,6 +96,7 @@ func main() {
 	}
 	fmt.Println(&books2)
 	fmt.Println(m)
+	fmt.Println(len(m))
 	books2u := &types_pb.Books{}
 	err = proto.Unmarshal(m, books2u)
 	if err != nil {
