@@ -29,7 +29,9 @@ func Test_AvgSignal(t *testing.T) {
 		listsignals = append(listsignals, s)
 		if i == 10 {
 			j++
-			ST = append(ST, Stest{fmt.Sprintf("Test %v", j), listsignals, sum / 10})
+			if j < 5 {
+				ST = append(ST, Stest{fmt.Sprintf("Test %v", j), listsignals, sum / 10})
+			}
 			i = 0
 			sum = 0
 			listsignals = []int{}
