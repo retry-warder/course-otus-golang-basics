@@ -39,11 +39,11 @@ func main() {
 	fmt.Printf("%v\n", b2)
 	fmt.Printf("%v\n", b2u)
 	fmt.Printf("%v\n", "------------------------------------------------------------")
-	var books types.Books
+	var books []types.Book
 	books = append(books, b1u, b2u)
-	j := books.EnCodeJSON()
+	j := types.EnCodeJSON(books)
 	fmt.Printf("books1 json %s\n", j)
-	var booksu types.Books
+	var booksu []types.Book
 	err = json.Unmarshal(j, &booksu)
 	if err != nil {
 		panic(err)
@@ -82,26 +82,5 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(b4u)
-	fmt.Printf("%v\n", "------------------------------------------------------------")
-
-	var listbooks []*types_pb.Book
-	listbooks = append(listbooks, b3, b4)
-
-	var books2 types_pb.Books
-	books2.Value = listbooks
-
-	m, err := proto.Marshal(&books2)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(&books2)
-	fmt.Println(m)
-	fmt.Println(len(m))
-	books2u := &types_pb.Books{}
-	err = proto.Unmarshal(m, books2u)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(books2u)
 	fmt.Printf("%v\n", "------------------------------------------------------------")
 }

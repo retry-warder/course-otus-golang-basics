@@ -11,7 +11,3 @@ message book {
     uint32 size = 5;
     float rate = 6;
 }
-
-message books {
-    repeated book value = 1;
-}
