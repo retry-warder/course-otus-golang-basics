@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	"github.com/retry-warder/course-otus-golang-basics/hw10_motion_sensor/types"
 	"github.com/stretchr/testify/require"
@@ -19,18 +20,19 @@ func Test_AvgSignal(t *testing.T) {
 	var sum float64
 	signal := make(chan int)
 	var ST []Stest
-	go types.GenSignal(signal, 2)
+	go types.GenSignal(signal, 2*time.Second)
 	i = 0
-	listsignals := make([]int, 10)
+	listsignals := []int{}
 	for s = range signal {
 		i++
 		sum += float64(s)
+		listsignals = append(listsignals, s)
 		if i == 10 {
 			j++
 			ST = append(ST, Stest{fmt.Sprintf("Test %v", j), listsignals, sum / 10})
 			i = 0
 			sum = 0
-			listsignals = make([]int, 10)
+			listsignals = []int{}
 		}
 	}
 	for _, tc := range ST {

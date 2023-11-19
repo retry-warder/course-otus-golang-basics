@@ -13,9 +13,9 @@ type Data struct {
 	avg         float64
 }
 
-func GenSignal(signal chan<- int, t int) {
+func GenSignal(signal chan<- int, t time.Duration) {
 	defer close(signal)
-	tt := time.NewTimer(2 * time.Second)
+	tt := time.NewTimer(t)
 	max := big.NewInt(1000)
 	for {
 		select {
