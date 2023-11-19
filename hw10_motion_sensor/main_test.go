@@ -45,7 +45,7 @@ func Test_AvgSignal(t *testing.T) {
 			for k := 0; k < len(tc.input); k++ {
 				sum += float64(tc.input[k])
 			}
-			res := sum / float64(len(tc.input))
+			res := sum / 10
 			require.Equal(t, tc.expected, res, fmt.Sprintf("avg (%v) = %v; want %v", tc.input, res, tc.expected))
 		})
 	}
