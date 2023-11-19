@@ -30,7 +30,7 @@ func Test_AvgSignal(t *testing.T) {
 		if i == 10 {
 			j++
 			if j < 5 {
-				ST = append(ST, Stest{fmt.Sprintf("Test %v", j), listsignals, sum / 10})
+				ST = append(ST, Stest{fmt.Sprintf("Test %v", j), listsignals, sum / float64(len(listsignals))})
 			}
 			i = 0
 			sum = 0
@@ -45,7 +45,7 @@ func Test_AvgSignal(t *testing.T) {
 			for k := 0; k < len(tc.input); k++ {
 				sum += float64(tc.input[k])
 			}
-			res := sum / 10
+			res := sum / float64(len(tc.input))
 			require.Equal(t, tc.expected, res, fmt.Sprintf("avg (%v) = %v; want %v", tc.input, res, tc.expected))
 		})
 	}
