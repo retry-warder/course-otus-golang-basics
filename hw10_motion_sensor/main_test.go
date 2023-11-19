@@ -40,3 +40,17 @@ func Test_AvgSignal(t *testing.T) {
 		})
 	}
 }
+
+func Test_Data_Proc(t *testing.T) {
+	check := false
+	signal := make(chan int)
+	data := make(chan types.Data)
+	go types.GenSignal(signal, 2*time.Second)
+	go types.DataProcess(signal, data)
+	for d := range data {
+		fmt.Println("------------------------------")
+		fmt.Println(d)
+		check = true
+	}
+	require.Equal(t, check, true)
+}

@@ -10,7 +10,7 @@ import (
 func main() {
 	signal := make(chan int)
 	data := make(chan types.Data)
-	go types.GenSignal(signal, time.Minute)
+	go types.GenSignal(signal, 1*time.Minute)
 	go types.DataProcess(signal, data)
 	for d := range data {
 		fmt.Println("------------------------------")
